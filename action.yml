@@ -1,7 +1,5 @@
 name: "Tanner Linting Report"
 description: "This lints the changed files within a Pull Request and adds comments onto the PR for the developer to correct."
-icon: "check-circle"
-color: "black"
 author: "Tanner Smith"
 on: [pull_request]
 
