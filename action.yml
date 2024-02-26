@@ -28,14 +28,14 @@ jobs:
       - name: Install Eslint
         run: npm install eslint --global
 
-      - name: Save Code Linting Report JSON
-        run: |
-          
-          done
-        #for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-        #echo $file
-        #eslint . --ext .js --output-file eslint_report.json --format json src
-        # Continue to the next step even if this fails
+      #- name: Save Code Linting Report JSON
+      #  run: |
+      #    for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+      #    echo $file
+      #    eslint . --ext .js --output-file eslint_report.json --format json src
+      #    # Continue to the next step even if this fails
+      #    done
+        
         continue-on-error: true
 
       - name: Annotate Code Linting Results
