@@ -1,11 +1,8 @@
 name: "Tanner Linting Report"
 description: "This lints the changed files within a Pull Request and adds comments onto the PR for the developer to correct."
 author: "Tanner Smith"
-on: [pull_request]
 
-jobs:
-  lint:
-    runs-on: ubuntu-latest
+runs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node
