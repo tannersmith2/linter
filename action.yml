@@ -4,29 +4,29 @@ author: "Tanner Smith"
 on: [pull_request]
 
 jobs:
-  eslint:
+  lint:
     runs-on: ubuntu-latest
     steps:
-#      - uses: actions/checkout@v3
-#      - name: Setup Node
-#        uses: actions/setup-node@v3
-#        with:
-#          node-version: 16
-#          cache: 'npm'
-#      - name: Install Node Dependencies
-#        run: npm ci
-#        env:
-#          CI: TRUE
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - name: Install Node Dependencies
+        run: npm ci
+        env:
+          CI: TRUE
 
- #     - name: Get Changed Files
- #       id: changed-files
- #       uses: tj-actions/changed-files@v39.2.3
- #       with:
- #         separator: ","
- #         files_ignore_separator: ","
+      - name: Get Changed Files
+        id: changed-files
+        uses: tj-actions/changed-files@v39.2.3
+        with:
+          separator: ","
+          files_ignore_separator: ","
 
- #     - name: Install Eslint
- #       run: npm install eslint --global
+      - name: Install Eslint
+        run: npm install eslint --global
 
       - name: Save Code Linting Report JSON
         run: |
@@ -37,7 +37,7 @@ jobs:
         # Continue to the next step even if this fails
         continue-on-error: true
 
-#      - name: Annotate Code Linting Results
-#        uses: ataylorme/eslint-annotate-action@v2
-#        with:
-#          report-json: "eslint_report.json"
+      - name: Annotate Code Linting Results
+        uses: ataylorme/eslint-annotate-action@v2
+        with:
+          report-json: "eslint_report.json"
