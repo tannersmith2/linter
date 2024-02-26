@@ -26,6 +26,7 @@ runs:
       #   run: npm install eslint --global
 
       - name: Save Code Linting Report JSON
+        shell: bash
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
           echo $file
