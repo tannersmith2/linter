@@ -36,7 +36,7 @@ jobs:
       #    # Continue to the next step even if this fails
       #    done
         
-        continue-on-error: true
+      #  continue-on-error: true
 
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@v2
