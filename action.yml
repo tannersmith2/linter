@@ -1,7 +1,10 @@
 name: "Tanner Linting Report"
 description: "This lints the changed files within a Pull Request and adds comments onto the PR for the developer to correct."
 author: "Tanner Smith"
-
+inputs:
+    changed-files:
+        description: 'A list of files that were changed and need to be looped through to lint'
+        required: true
 runs:
     using: "composite"
     steps:
@@ -28,7 +31,7 @@ runs:
       - name: Save Code Linting Report JSON
         shell: bash
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+          for file in ${{ inputs.changed-files }}; do
           echo $file
           eslint . --ext .js --output-file eslint_report.json --format json src
           # Continue to the next step even if this fails
